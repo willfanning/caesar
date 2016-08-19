@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 import webapp2
 from caesar import encrypt
 
@@ -32,12 +30,10 @@ footer = """
 </html>
 """
 
-#TODO: write main HTML form
 main_html = """
 <form action="/rot13" method="post">
-    <label>Rotate by:
-        <input type="text" name="rot" value="{0}">
-    </label>
+    <label>Rotate by:</label>
+    <input type="text" name="rot" value="{0}">
     <textarea name="text">{1}</textarea>
     <br>
     <input type="submit">
@@ -48,6 +44,7 @@ main_html = """
 class Handler(webapp2.RequestHandler):
     def write(self, *a, **kw):
         return self.response.write(*a, **kw)
+
 
 class Main(Handler):
     def get(self):
